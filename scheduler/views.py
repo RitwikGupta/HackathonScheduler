@@ -1,12 +1,11 @@
-from flask import render_template
-from scheduler import scheduler
+from flask import Flask
+hs = Flask(__name__)
 
-
-@scheduler.route('/')
-@scheduler.route('/index')
-@scheduler.route('/index/')
-def index():
-    return "<h1>Hi</h1>"
+@hs.route('/')
+@hs.route('/index')
+@hs.route('/index/')
+def hello_world():
+    return 'Hello World!'
 
 if __name__ == '__main__':
-    scheduler.run()
+    hs.run()
