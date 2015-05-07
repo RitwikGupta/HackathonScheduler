@@ -21,9 +21,9 @@ def get_hackathons_at_dates(indexes):
     return new_array
 
 def get_weekend_score(location, index):
-    distances = []
+    scores = []
     for hackathon in weekends[index]:
-        distances.append( vincenty( hackathon['location'], location ).miles )
+        scores.append( 1000/(vincenty( hackathon['location'], location ).miles) )
     return sum(distances)
 
 def get_scores(location):
