@@ -20,17 +20,17 @@ def get_hackathons_at_dates(indexes):
         new_array.append(hackathons[index])
     return new_array
 
-def get_min_distance(location, index):
+def get_weekend_score(location, index):
     distances = []
     for hackathon in weekends[index]:
         distances.append( vincenty( hackathon['location'], location ).miles )
-    return (len(distances)>0)? (len(weekends[index]), min(distances)) : (0, None)
+    return sum(distances)
 
-def get_distances(location):
-    distances=[]
+def get_scores(location):
+    scores=[]
     for index in possible_dates:
         if(hackathons[index]>0):
-            distances.append(get_min_distance(location,index))
+            scores.append(get_min_distance(location,index))
         else:
-            distances.append(None)
-    return distances
+            scores.append(0)
+    return scores
