@@ -11,11 +11,6 @@ def index():
 def calc():
     best_date = get_best_weekend(#location, possible dates array
 
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
-
-
 def get_weekend_score(location, index):
     #returns the score for a given date based on the hackathons in it
     scores = []
