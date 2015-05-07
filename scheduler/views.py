@@ -7,3 +7,6 @@ from scheduler import scheduler
 @scheduler.route('/index/')
 def index():
     return "<h1>Hi</h1>"
+
+if __name__ == '__main__':
+    scheduler.run()
