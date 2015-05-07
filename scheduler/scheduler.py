@@ -9,6 +9,7 @@ def index():
 
 @app.route('/calc', methods=['POST'])
 def calc():
+    best_date = get_best_weekend(#location, possible dates array
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
