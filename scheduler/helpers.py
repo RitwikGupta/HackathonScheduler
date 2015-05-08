@@ -1,12 +1,13 @@
 from geopy.distance import vincenty
 
-def calc(location, possible_dates):
-    return get_best_weekend(location, possible_dates)
-
 def get_best_weekend_index(location, possible_dates):
     #given a location and a date, it finds the best one based on score
     scores = get_scores(location, possible_dates)
-    return scores.index(min(scores))
+    sorted_scores = sorted(scores)
+    ranked weekends = []
+    for score in sorted_scores:
+        ranked_weekends.append(possible_dates[sorted_scores.index(score)])
+    return ranked_weekends
 
 def get_scores(location, possible_dates):
     #returns an array of scores for the given location at each date
@@ -23,4 +24,4 @@ def get_weekend_score(location, index):
     scores = []
     for hackathon in weekends[index]:
         scores.append( 1000/(vincenty( hackathon['location'], location ).miles) )
-    return sum(distances)
+    return sum(scores)
